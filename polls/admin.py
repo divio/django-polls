@@ -5,6 +5,7 @@ from .models import Choice, Poll
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
+    readonly_fields = ('votes',)
     extra = 3
 
 
@@ -13,16 +14,10 @@ class PollAdmin(admin.ModelAdmin):
         (None, {
             'fields': ['question'],
         }),
-        ('Date information', {
-            'fields': ['pub_date'],
-            'classes': ['collapse'],
-        }),
     ]
     inlines = [ChoiceInline]
-    list_display = ('question', 'pub_date', 'was_published_recently')
-    list_filter = ['pub_date']
+    list_display = ('question',)
     search_fields = ['question']
-    date_hierarchy = 'pub_date'
 
 admin.site.register(Poll, PollAdmin)
 admin.site.register(Choice)
