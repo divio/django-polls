@@ -6,12 +6,12 @@ import polls
 
 setup(
     name='polls',
-    version=polls.VERSION,
+    version=polls.__version__,
     description='',
     author='Jakub Janoszek',
     author_email='kuba.janoszek@gmail.com',
     include_package_data=True,
-    url='https://github.com/divio/django-polls/tree/ver-%s' % polls.VERSION,
+    url='https://github.com/divio/django-polls/tree/ver-%s' % polls.__version__,
     packages=find_packages(),
     classifiers=[
         'Development Status :: 4 - Beta',
