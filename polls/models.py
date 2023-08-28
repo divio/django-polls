@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 from django.db import models
+from django.urls import reverse
 
 
 class Poll(models.Model):
@@ -7,6 +8,9 @@ class Poll(models.Model):
 
     def __str__(self):              # Python 3: def __unicode__(self):
         return self.question
+    
+    def get_absolute_url(self):
+        return reverse("polls:detail", kwargs={"pk": self.pk})
 
 
 class Choice(models.Model):
